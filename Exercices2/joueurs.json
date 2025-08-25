@@ -3,5 +3,15 @@
         "score": 1,
         "nb_jeux_joues": 1,
         "nb_victoires": 1
+    },
+    "Max": {
+        "score": 4,
+        "nb_jeux_joues": 6,
+        "nb_victoires": 4
+    },
+    "Roy": {
+        "score": 3,
+        "nb_jeux_joues": 8,
+        "nb_victoires": 3
     }
 }
