@@ -1,6 +1,5 @@
 # Importation de colorama
-from colorama import init, Fore, Style
-init(autoreset=True)
+from colorama import Fore, Style
 
 import time, json, os
 
@@ -22,14 +21,15 @@ def sauvegarder_contacts():
         with open(SAVE_FILE, "w", encoding="utf-8") as f:
             json.dump(contacts, f, indent=4, ensure_ascii=False)
     except Exception as e:
-        print(Fore.RED + f"⚠ Erreur de sauvegarde: {e}")
+        print(Fore.RED + f"❌ Erreur de sauvegarde: {e}")
 
 
 contacts = charger_contacts()
 
 
 def menu():
-    print(Fore.CYAN + Style.BRIGHT + "\n=== MENU REPERTOIRE ===" + Style.RESET_ALL)
+    text = "\n=== MENU REPERTOIRE ==="
+    print(Fore.CYAN + Style.BRIGHT + text.center(50, " ") + Style.RESET_ALL)
     print(Fore.YELLOW + "1 -" + Style.RESET_ALL + " Afficher le répertoire")
     print(Fore.YELLOW + "2 -" + Style.RESET_ALL + " Ajouter un contact")
     print(Fore.YELLOW + "3 -" + Style.RESET_ALL + " Rechercher un contact")
@@ -39,7 +39,7 @@ def menu():
 
 def afficher_contacts():
     if not contacts:
-        print(Fore.RED + "\n⚠ Aucun contact dans le répertoire.")
+        print(Fore.RED + "\n❌ Aucun contact dans le répertoire.")
     else:
         print(Fore.GREEN + Style.BRIGHT + "\n=== MON REPERTOIRE === ")
         for nom, numero in contacts.items():
@@ -114,8 +114,9 @@ def supprimer_contact():
         print(Fore.RED + "❌ Contact introuvable.")
 
 
+
 while True:
-    time.sleep(1)
+    time.sleep(2)
     menu()
     try:
         choix = int(input(Fore.CYAN + "\nEntrez votre choix: " + Style.RESET_ALL))
